@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <title>Gllonks | Dashboard</title>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <figure class="icon-figure">
+                <img class="img" src="./assets/images/gallonks-logo.svg" alt="gallonks logo">
+                <figcaption class="logo-name">Gallonks</figcaption>
+            </figure>
+        </div>
+        <nav>
+            <ul class="flex">
+                <li><a class="flex" href="#"><figure><img src="./assets/icons/order-icon.png" alt=""></figure> Ordenes</a></li>
+                <li><a class="flex" href="#"><figure><img src="./assets/icons/stock-icon.png" alt=""></figure> Inventario</a></li>
+                <li><a class="flex" href="#"><figure><img src="./assets/icons/caja.png" alt=""></figure> Caja</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+
+    <main>
+        <section class="columna-50">
+            <p class="tittle">Agregar nueva orden</p>
+            <label class="labels" for="name">Nombre: <input class="inputs" type="text" name="name" id="name" placeholder="Ingresa el nombre del pedido"></label>
+
+            <label class="labels" for="product">Producto: <select class="inputs"name="product" id="product"><option value="">Escoge un producto</option>
+            <option value="wings">Alitas</option>
+            <option value="boneless">Boneless</option>
+            <option value="extras">Extras</option></select></label>
+
+            <label class="labels" for="portion">Porcion: <select class="inputs" name="portion" id="portion"><option value="">Escoge una porcion</option>
+                <option value="portion-1">1 kg</option>
+                <option value="portion-2">1/2 kg</option>
+                <option value="portion-3">Personal</option></select></label>
+
+            <label class="labels" for="sauce">Salsa: <select class="inputs"name="sauce" id="sauce"><option value="">Escoge una salsa</option>
+                <option value="buffalo">Buffalo</option>
+                <option value="mango">Mango habanero</option>
+                <option value="bbq">BBQ</option></select>
+            </label>
+
+            <button class="button">Agregar orden</button>
+        </section>
+        <section class="columna-50">
+            <p class="tittle">Orden activa</p>
+        </section>
+        
+        <section class="columna-100">
+            <p class="tittle">Ordenes</p>
+            <div class="order-container">
+                <div>
+                    <p>Nombre</p>
+                    <p>Manuel</p>
+                </div>
+                <div>
+                    <p>Pedido</p>
+                    <p>1 kg de alitas buffalo</p>
+                    <p>1 papas</p>
+                    <p>1/2 kg de boneless</p>
+                    <p>Aros de cebolla</p>
+                </div>
+                <div>
+                    <p>Total</p>
+                    <p>$400</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="./js/ordenes.js"></script>
+</body>
+</html>
