@@ -8,6 +8,7 @@ let previewClientName = document.getElementById("preview-order-name")
 let previewOrderProducts = document.getElementById("preview-order-products")
 let previewOrderCost = document.getElementById("preview-order-cost")
 let productsInOrder = 0
+let productsNameInOrder = []
 
 portion.style.display = "none"
 sauce.style.display = "none"
@@ -42,10 +43,52 @@ function cambio(){
 
 function addProduct (){
     productsInOrder++
-    previewOrderProducts.innerHTML += `<p>${portion.value} de ${product.value} ${sauce.value}`
+    productsNameInOrder[productsInOrder] = portion.value + " de " + product.value + " " + sauce.value
+    console.log(productsNameInOrder)
+    previewOrderProducts.innerHTML += `<p> ${productsNameInOrder[productsInOrder]} <button onclick="deleteProduct(${productsInOrder})">x</button> </p>`
+
     portion.value = ""
     portion.style.display = "none"
     sauce.value = ""
     sauce.style.display = "none"
     product.value = ""
+    orderCost()
+}
+
+function deleteProduct(product){
+    let x = 1
+    productsNameInOrder.splice(product,1)
+    previewOrderProducts.innerHTML = `<p> Pedido </p>`
+    
+    productsNameInOrder.forEach(element => {
+
+        previewOrderProducts.innerHTML += `<p> ${element} <button onclick="deleteProduct(${x})">x</button> </p>`
+        x++
+        console.log(x)
+        console.log(productsNameInOrder);
+        orderCost()
+    });
+
+    console.log(productsNameInOrder)
+}
+
+function orderCost(){
+    let mediosKilos = 0
+    let kilos = 0
+    productsNameInOrder.forEach(product =>{
+
+        if(product.indexOf("1/2") > -1){
+            mediosKilos++
+            console.log("hay " + mediosKilos + " medios jen la orden")
+        }
+
+        else if (product.indexOf("1 kg") > -1){
+            kilos++
+            console.log("hay " + kilos + " kg en la orden")
+        }
+
+        else {
+
+        }
+    })
 }
