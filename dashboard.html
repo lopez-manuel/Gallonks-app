@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/dashboard.css">
-    <title>Gllonks | Dashboard</title>
+    <title>Gallonks | Dashboard</title>
 </head>
 <body>
     <header>
@@ -27,20 +27,24 @@
 
     <main>
         <section class="columna-50">
+            <p class="date tittle"></p>
             <p class="tittle">Agregar nueva orden</p>
-            <label class="labels" for="name">Nombre: <input class="inputs" type="text" name="name" id="name" placeholder="Ingresa el nombre del pedido"></label>
+            <label class="labels name" for="name">Nombre: <input maxlength="15" class="inputs" type="text" name="name" id="name" placeholder="Ingresa el nombre del pedido"></label>
 
-            <label class="labels" for="product">Producto: <select class="inputs"name="product" id="product"><option value="">Escoge un producto</option>
+            <label class="labels product" for="product">Producto: <select class="inputs"name="product" id="product"><option value="">Escoge un producto</option>
             <option value="Alitas">Alitas</option>
             <option value="boneless">Boneless</option>
             <option value="extras">Extras</option></select></label>
 
-            <label class="labels" for="portion">Porcion: <select class="inputs" name="portion" id="portion"><option value="">Escoge una porcion</option>
+            <label class="extras labels" for="extras"> Extras: <select class="inputs" name="extras" id="extras"><option value="">Selecciona un extra</option>
+            <option value="papas a la francesa">Papas a la francesa</option><option value="aros de cebolla">Aros de cebolla</option></select></label>
+
+            <label class="labels portion" for="portion">Porcion: <select class="inputs" name="portion" id="portion"><option value="">Escoge una porcion</option>
                 <option value="1 kg">1 kg</option>
                 <option value="1/2 kg">1/2 kg</option>
                 <option value="portion-3">Personal</option></select></label>
 
-            <label class="labels" for="sauce">Salsa: <select class="inputs"name="sauce" id="sauce"><option value="">Escoge una salsa</option>
+            <label class="labels sauces" for="sauce">Salsa: <select class="inputs"name="sauce" id="sauce"><option value="">Escoge una salsa</option>
                 <option value="buffalo">Buffalo</option>
                 <option value="mango">Mango habanero</option>
                 <option value="bbq">BBQ</option></select>
@@ -48,21 +52,18 @@
 
             <button class="button" id="add-product-button">Agregar producto</button>
             <button class="button" id="end-order">Terminar orden</button>
-            <button class="button" onclick="deletes('hola')">eliminar</button>
         </section>
         <section class="columna-50" id="preview">
             <p class="tittle">Orden activa</p>  
             <div class="order-container">
                 <div id="preview-order-name">
                     <p>Nombre</p>
-                    <p>Manuel</p>
                 </div>
                 <div id="preview-order-products">
                     <p>Pedido</p>
                 </div>
                 <div id="preview-order-cost">
                     <p>Total</p>
-                    <p>$400</p>
                 </div>
             </div>
         </section>

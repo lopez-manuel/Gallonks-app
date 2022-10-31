@@ -116,6 +116,10 @@ main{
     margin-top: 24px;
 }
 
+.extras, .portion, .sauces{
+    display: none;
+}
+
 .inputs{
     width: 200px;
     height: 30px;
