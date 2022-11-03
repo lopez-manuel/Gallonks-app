@@ -9,11 +9,13 @@ const previewClientName = document.getElementById("preview-order-name")
 const previewOrderProducts = document.getElementById("preview-order-products")
 const previewOrderCost = document.getElementById("preview-order-cost")
 const extras = document.getElementById("extras")
+const ordersSection = document.getElementById("orders-section")
 let productsInOrder = 0
 let productsNameInOrder = []
 let today = new Date()
+let ordersArray=[]
 
-
+//ORDER CLASS
 class pedido{
     constructor(id,nombre,pedido,costo){
         this.id = id
@@ -24,6 +26,8 @@ class pedido{
 }
 
 getDate()
+getOrders()
+printOrders()
 
 clientName.addEventListener("keydown" && "keyup", namePreview )
 product.addEventListener("change",cambio)
@@ -181,7 +185,6 @@ function finishOrder(){
 
     else{
         alert("tienes "+(productsNameInOrder.length -1)+ " pedidos en tu orden")
-        let ordersArray = []
         let productsHtml = ""
 
         productsNameInOrder.forEach(product =>{
@@ -189,8 +192,6 @@ function finishOrder(){
 
         })
 
-
-        //ordersArray = JSON.parse(localStorage.getItem(getDate()))
         let order
         console.log(ordersArray + " esto es lo que imprime el ordersArray cuando no hay ningun elemento")
         if(ordersArray === null){
@@ -206,12 +207,12 @@ function finishOrder(){
         localStorage.setItem(getDate(),JSON.stringify(ordersArray))
         
     }
+    window.location.reload()
 }
 
 //GET ORDERS
 
-function getOrders (){
-    let ordersArray = []
+function getOrders(){
     if(JSON.parse(localStorage.getItem(getDate())) === null){
         console.log("NO HAY ORDENES")
     }
@@ -222,6 +223,32 @@ function getOrders (){
 
     console.log("GET ORDERS FUNCTION")
     console.log(ordersArray)
+    return ordersArray
+}
+
+
+//PRINT ORDERS IN ORDERS CONTAINER
+function printOrders (){
+    ordersSection.innerHTML = ""
+    ordersArray.forEach(order => {
+        ordersSection.innerHTML += `
+        <div class="order-container">
+                <div>
+                    <p>Nombre</p>
+                    <p>${order.nombre}</p>
+                </div>
+                <div>
+                    <p>Pedido</p>
+                    ${order.pedido}
+                </div>
+                <div>
+                    <p>Total</p>
+                    <p>$${order.costo}</p>
+                </div>
+            </div>
+        `
+    });
+    
 }
 
 //DATE
